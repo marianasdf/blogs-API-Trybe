@@ -1,5 +1,4 @@
 const displayNameValidate = (req, res, next) => {
-  console.log(req.body);
   const { displayName } = req.body;
 
   const CHARACTERS = 8;
