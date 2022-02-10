@@ -4,7 +4,9 @@ const express = require('express');
 const rescue = require('express-rescue');
 const userController = require('./controllers/userController');
 const loginController = require('./controllers/loginController');
+const categoryController = require('./controllers/categoryController');
 const getAll = require('./controllers/userController');
+const { nameValidate } = require('./middlewares/categoryValidate');
 const {
   displayNameValidate,
   emailValidate,
@@ -32,6 +34,9 @@ app.post('/login', loginValidate, rescue(loginController.createLoginTokenControl
 app.get('/user', validateToken, rescue(getAll.getAllUsersController));
 
 app.get('/user/:id', validateToken, idValidate, rescue(userController.getUserByIdController));
+
+app.post('/categories', 
+nameValidate, validateToken, rescue(categoryController.createCategoryController));
 
 app.listen(3000, () => console.log('ouvindo porta 3000!'));
 
