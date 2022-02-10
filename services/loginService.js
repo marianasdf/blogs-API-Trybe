@@ -12,7 +12,7 @@ const jwtConfig = {
 const createLoginToken = async (email) => {
   const emailValidate = await user.findOne({ where: { email } });
   if (!emailValidate) return { message: 'The "email" not to be empty' };
-  const token = jwt.sign({ data: email }, secret, jwtConfig);
+  const token = jwt.sign({ email }, secret, jwtConfig);
   return token;
 };
 

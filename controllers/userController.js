@@ -13,6 +13,13 @@ const createUserController = async (req, res) => {
   return res.status(201).json(userCreate);
 };
 
+const getAllUsersController = async (_req, res) => {
+ const users = await userService.getAllUsers();
+ console.log(users);
+   return res.status(200).json(users);
+};
+
 module.exports = {
   createUserController,
+  getAllUsersController,
 };
