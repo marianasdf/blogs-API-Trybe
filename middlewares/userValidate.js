@@ -1,3 +1,5 @@
+const userService = require('../services/userService');
+
 const displayNameValidate = (req, res, next) => {
   const { displayName } = req.body;
 
@@ -43,8 +45,20 @@ const passwordValidate = (req, res, next) => {
   next();
 };
 
+const idValidate = async (req, res, next) => {
+  const { id } = req.params;
+
+  const userId = await userService.getUserById(id);
+
+  if (!userId) {
+    return res.status(404).json({ message: 'User does not exist' });
+  }
+  next();
+};
+
 module.exports = {
   displayNameValidate,
   emailValidate,
   passwordValidate,
+  idValidate,
 };

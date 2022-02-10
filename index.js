@@ -9,6 +9,7 @@ const {
   displayNameValidate,
   emailValidate,
   passwordValidate,
+  idValidate,
 } = require('./middlewares/userValidate');
 
 const { validateToken } = require('./middlewares/auth');
@@ -29,6 +30,8 @@ app.post(
 app.post('/login', loginValidate, rescue(loginController.createLoginTokenController));
 
 app.get('/user', validateToken, rescue(getAll.getAllUsersController));
+
+app.get('/user/:id', validateToken, idValidate, rescue(userController.getUserByIdController));
 
 app.listen(3000, () => console.log('ouvindo porta 3000!'));
 
