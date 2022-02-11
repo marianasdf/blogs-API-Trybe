@@ -5,7 +5,9 @@ const rescue = require('express-rescue');
 const userController = require('./controllers/userController');
 const loginController = require('./controllers/loginController');
 const categoryController = require('./controllers/categoryController');
+const blogPostController = require('./controllers/blogPostController');
 const getAll = require('./controllers/userController');
+const { blogPostValidate } = require('./middlewares/blogPostValidate');
 const { nameValidate } = require('./middlewares/categoryValidate');
 const {
   displayNameValidate,
@@ -35,10 +37,13 @@ app.get('/user', validateToken, rescue(getAll.getAllUsersController));
 
 app.get('/user/:id', validateToken, idValidate, rescue(userController.getUserByIdController));
 
-app.post('/categories', 
-nameValidate, validateToken, rescue(categoryController.createCategoryController));
+app.post('/categories',
+  nameValidate, validateToken, rescue(categoryController.createCategoryController));
 
 app.get('/categories', validateToken, rescue(categoryController.getAllCategoriesController));
+
+app.post('/post', 
+validateToken, blogPostValidate, rescue(blogPostController.createBlogPostController));
 
 app.listen(3000, () => console.log('ouvindo porta 3000!'));
 
