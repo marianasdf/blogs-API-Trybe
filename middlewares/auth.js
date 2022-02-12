@@ -10,7 +10,6 @@ const validateToken = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, secret);
-    console.log(decoded);
     const { email } = decoded;
     const user = await User.findOne({ where: { email } });
 
