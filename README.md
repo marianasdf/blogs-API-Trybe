@@ -1,7 +1,7 @@
 
-# Projeto API de Produtos! :coin:
+# Projeto Blogs API! 
 
-Nesse projeto, o objetivo era desenvolver um **CRUD** (Create, Read, Update e Delete) posts de blog (com o Sequelize).  Desenvolvendo alguns endpoints (seguindo os princípios do REST) que estarão conectados ao banco de dados.
+Nesse projeto, o objetivo era desenvolver um **CRUD** (Create, Read, Update e Delete) de posts  (com o Sequelize).  Desenvolvendo alguns endpoints (seguindo os princípios do REST) que estarão conectados ao banco de dados.
 
 
 Desafios:
@@ -79,6 +79,8 @@ A conexão do banco deverá conter os seguintes parâmetros:
   * `http://localhost:3000`
 ---
 
-referências - Este README foi criado baseado neste repositório da Luana Moneró https://github.com/luanamonero/crud-api-products/blob/main/README.md
+7. referências 
 
-o pasta `seeders` foi criada pela trybe para inserir as querys no banco de dados.
+ - Este README foi criado baseado neste repositório da Luana Moneró https://github.com/luanamonero/crud-api-products/blob/main/README.md
+
+ - A pasta `seeders` foi criada pela trybe para inserir as querys no banco de dados.
